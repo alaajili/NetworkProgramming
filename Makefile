@@ -1,5 +1,5 @@
 CC = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g3
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 
 showip:
