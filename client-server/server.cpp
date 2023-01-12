@@ -1,10 +1,14 @@
 #include <cstdio>
 #include <sys/socket.h>
 #include <unistd.h>
-#include <cstdlib>
+//#include <cstdlib>
 #include <netinet/in.h>
 #include <cstring>
 #include <iostream>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <fstream>
+#include <sstream>
 
 #define PORT 8080
 
@@ -46,11 +50,10 @@ int main()
             std::cerr << "Error in accept" << std::endl;
             exit(1);
         }
-
         char buffer[30000] = {0};
         val_read = read(new_socket, buffer, 30000);
         std::cout << buffer << std::endl;
-        write(new_socket, "HTTP/1.1 200 OK\nContent-Type: text/plain\nContent-Length: 12\n\nHello world!", 200);
+        write(new_socket, "HTTP/1.1 200 OK\nContent-Type: text/html\nContent-Length: 21\n\n<h1>Hello World!</h1>", 200);
         std::cout << "---------- Message sent ----------" << std::endl;
         close(new_socket);
     }
